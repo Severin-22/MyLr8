@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лабораторна робота 8</title>
+</head>
+<body>
+    <h1>Лабораторна робота 8</h1>
+    <p><em>Ільєнко Сергій Олександрович, група 22010бск</em></p>
+    <h2>Таблиці БД</h2>
+
+    <h1>Клієнти</h1>
+    <ul>
+        {% for client in clients %}
+            <li>{{ client.company_name }} - {{ client.client_type }} - {{ client.address }} - {{ client.phone }} - {{ client.contact_person }} - {{ client.account_number }}</li>
+        {% endfor %}
+    </ul>
+    
+    <h1>Продукти</h1>
+    <ul>
+        {% for product in products %}
+            <li>{{ product.product_name }} - {{ product.price }} грн - Кількість: {{ product.quantity }}</li>
+        {% endfor %}
+    </ul>
+    
+    <h1>Продажі</h1>
+    <ul>
+        {% for sale in sales %}
+            <li>Дата: {{ sale.sale_date }} - Клієнт: {{ sale.client.company_name }} - Продукт: {{ sale.product.product_name }} - Кількість: {{ sale.quantity_sold }} - Знижка: {{ sale.discount }}% - Метод оплати: {{ sale.payment_method }} - Доставка: {{ sale.delivery_required }} - Вартість доставки: {{ sale.delivery_cost }} грн</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
